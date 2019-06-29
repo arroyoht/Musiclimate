@@ -9,10 +9,10 @@ public class Weather {
 
 	@JsonProperty("temp")
 	private Double temperature;
-	
+
 	@JsonProperty("temp_min")
 	private Double maxTemperature;
-	
+
 	@JsonProperty("temp_max")
 	private Double minTemperature;
 }

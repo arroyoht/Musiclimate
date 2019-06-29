@@ -18,14 +18,15 @@ public class WeatherController {
 
 	@Autowired
 	WeatherService weatherService;
-	
+
 	@GetMapping("/city/{city}")
 	public ResponseEntity<WeatherResource> getWeatherByCity(@PathVariable("city") String cityName) {
 		return ResponseEntity.ok(weatherService.getWeatherByCity(cityName));
-	} 
-	
+	}
+
 	@GetMapping("/coordinate")
-	public ResponseEntity<WeatherResource> getWeatherByCoordinates(@RequestParam("lat") Double latitude, @RequestParam("lon") Double longitude) {
+	public ResponseEntity<WeatherResource> getWeatherByCoordinates(@RequestParam("lat") Double latitude,
+			@RequestParam("lon") Double longitude) {
 		return ResponseEntity.ok(weatherService.getWeatherByCoordinates(latitude, longitude));
 	}
 }

@@ -9,10 +9,10 @@ public class WeatherResource {
 
 	@JsonProperty("name")
 	private String cityName;
-	
+
 	@JsonProperty("coord")
 	private Coordinate coordinate;
-	
+
 	@JsonProperty("main")
 	private Weather weather;
 }

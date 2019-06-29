@@ -9,7 +9,7 @@ public class Coordinate {
 
 	@JsonProperty("lon")
 	private Double longitude;
-	
+
 	@JsonProperty("lat")
 	private Double latitude;
 }
