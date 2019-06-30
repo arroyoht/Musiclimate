@@ -9,8 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import br.com.musiclimate.client.service.MusicService;
-import br.com.musiclimate.client.service.WeatherService;
+import br.com.musiclimate.client.service.MusicApiIntegrationService;
+import br.com.musiclimate.client.service.WeatherApiIntegrationService;
 import br.com.musiclimate.domain.MusicCategory;
 import br.com.musiclimate.error.ResourceNotFoundException;
 import br.com.musiclimate.error.ServiceUnavailableException;
@@ -23,10 +23,10 @@ import feign.FeignException;
 public class MusiclimateServiceImpl implements MusiclimateService {
 
 	@Autowired
-	private MusicService musicService;
+	private MusicApiIntegrationService musicService;
 
 	@Autowired
-	private WeatherService weatherService;
+	private WeatherApiIntegrationService weatherService;
 
 	/**
 	 * Method responsible for getting a playlist of songs given latitude and
