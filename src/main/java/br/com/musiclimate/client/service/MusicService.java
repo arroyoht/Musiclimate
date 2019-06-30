@@ -12,8 +12,7 @@ import br.com.musiclimate.resource.TrackResource;
 public interface MusicService {
 
 	/**
-	 * Method gets music playlists according to given category as
-	 * {@link PlaylistResource}
+	 * Method gets music playlists according to given category
 	 * 
 	 * @param category name
 	 * @return playlist resource with list of playlist ids
@@ -22,10 +21,10 @@ public interface MusicService {
 	PlaylistResource getPlayListByCategory(@PathVariable("category_id") String category);
 
 	/**
-	 * Method gets a list of tracks given a playlist id as {@link TrackResource}
+	 * Method gets a list of tracks given a playlist id
 	 * 
 	 * @param playlist id
-	 * @return list of tracks identified under the given playlist id
+	 * @return list of tracks identified by the given playlist id
 	 */
 	@GetMapping("/playlists/{playlist_id}/tracks")
 	TrackResource getTracksByPlaylist(@PathVariable("playlist_id") String playlist);

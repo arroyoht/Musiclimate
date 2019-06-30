@@ -12,8 +12,7 @@ public interface WeatherService {
 	String apiKey = "${api.weather.key}";
 
 	/**
-	 * Method gets city weather information as
-	 * {@link br.com.musiclimate.resource.WeatherResource}
+	 * Method gets city weather information
 	 * 
 	 * @param city name of the city to query the weather API
 	 * @return weather information resource
@@ -22,8 +21,7 @@ public interface WeatherService {
 	WeatherResource getWeatherByCity(@PathVariable("city") String city);
 
 	/**
-	 * Method gets weather information according to given coordinates as
-	 * {@link br.com.musiclimate.resource.WeatherResource}
+	 * Method gets weather information according to given coordinates
 	 * 
 	 * @param lat latitude
 	 * @param lon longitude
