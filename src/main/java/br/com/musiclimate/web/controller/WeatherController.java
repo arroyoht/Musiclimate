@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.musiclimate.client.service.WeatherService;
+import br.com.musiclimate.client.service.WeatherApiIntegrationService;
 import br.com.musiclimate.resource.WeatherResource;
 
 @RestController
@@ -17,7 +17,7 @@ import br.com.musiclimate.resource.WeatherResource;
 public class WeatherController {
 
 	@Autowired
-	WeatherService weatherService;
+	WeatherApiIntegrationService weatherService;
 
 	@GetMapping("/city/{city}")
 	public ResponseEntity<WeatherResource> getWeatherByCity(@PathVariable("city") String cityName) {

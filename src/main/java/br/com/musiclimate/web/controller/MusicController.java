@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.musiclimate.client.service.MusicService;
+import br.com.musiclimate.client.service.MusicApiIntegrationService;
 import br.com.musiclimate.resource.PlaylistResource;
 import br.com.musiclimate.resource.TrackResource;
 
@@ -17,7 +17,7 @@ import br.com.musiclimate.resource.TrackResource;
 public class MusicController {
 
 	@Autowired
-	MusicService musicService;
+	MusicApiIntegrationService musicService;
 
 	@GetMapping("/category/{category}")
 	public ResponseEntity<PlaylistResource> getPlaylistByCategory(@PathVariable("category") String category) {
