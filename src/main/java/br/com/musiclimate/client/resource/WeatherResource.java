@@ -1,15 +1,11 @@
-package br.com.musiclimate.resource;
-
-import java.io.Serializable;
+package br.com.musiclimate.client.resource;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
 
 @Data
-public class WeatherResource implements Serializable {
-
-	private static final long serialVersionUID = 1077746044981985857L;
+public class WeatherResource {
 
 	@JsonProperty("name")
 	private String cityName;
@@ -19,4 +15,11 @@ public class WeatherResource implements Serializable {
 
 	@JsonProperty("main")
 	private Weather weather;
+	
+	public Double getTemperature() {
+		if(weather != null) {
+			return weather.getTemperature();
+		}
+		return null;
+	}
 }

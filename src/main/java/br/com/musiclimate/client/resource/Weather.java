@@ -1,15 +1,11 @@
-package br.com.musiclimate.resource;
-
-import java.io.Serializable;
+package br.com.musiclimate.client.resource;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
 
 @Data
-public class Weather implements Serializable {
-
-	private static final long serialVersionUID = -3360350089874984908L;
+public class Weather {
 
 	@JsonProperty("temp")
 	private Double temperature;

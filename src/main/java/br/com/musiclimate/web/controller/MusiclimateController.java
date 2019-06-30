@@ -3,6 +3,7 @@ package br.com.musiclimate.web.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,8 +22,8 @@ public class MusiclimateController {
 	private MusiclimateService musiclimateService;
 
 	@RequestMapping(value = "/city/{city}")
-	public ResponseEntity<List<String>> getPlaylistByCity(@PathVariable("city") String cityName) {
-		return ResponseEntity.ok(musiclimateService.getPlaylistByCity(cityName));
+	public ResponseEntity<List<String>> getPlaylistByCity(@PathVariable("city") String city) {
+		return ResponseEntity.ok(musiclimateService.getPlaylistByCity(city));
 	}
 
 	@GetMapping("/coordinates")

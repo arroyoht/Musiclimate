@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.musiclimate.client.resource.WeatherResource;
 import br.com.musiclimate.client.service.WeatherApiIntegrationService;
-import br.com.musiclimate.resource.WeatherResource;
 
 @RestController
 @RequestMapping(value = "/weather", produces = MediaType.APPLICATION_JSON_VALUE)

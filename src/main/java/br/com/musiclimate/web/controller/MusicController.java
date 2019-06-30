@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.musiclimate.client.resource.PlaylistResource;
+import br.com.musiclimate.client.resource.TrackResource;
 import br.com.musiclimate.client.service.MusicApiIntegrationService;
-import br.com.musiclimate.resource.PlaylistResource;
-import br.com.musiclimate.resource.TrackResource;
 
 @RestController
 @RequestMapping(value = "/music", produces = MediaType.APPLICATION_JSON_VALUE)
