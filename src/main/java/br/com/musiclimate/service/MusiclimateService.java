@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 import br.com.musiclimate.domain.MusicCategory;
+import br.com.musiclimate.error.ResourceNotFoundException;
 import br.com.musiclimate.error.ServiceUnavailableException;
 import feign.FeignException;
 
@@ -30,7 +31,8 @@ public class MusiclimateService {
 	 * @param lon longitude
 	 * @return List of playlist song names
 	 */
-	@HystrixCommand(commandKey = "playlistByCoordinates", fallbackMethod = "getFallbackPlaylist", ignoreExceptions = InvalidParameterException.class)
+	@HystrixCommand(commandKey = "playlistByCoordinates", fallbackMethod = "getFallbackPlaylist", ignoreExceptions = {
+			ResourceNotFoundException.class, InvalidParameterException.class })
 	public List<String> getPlaylistByCoordinates(Double lat, Double lon) {
 		try {
 			Double temp = temperatureService.getTemperatureByCoordinate(lat, lon);
@@ -46,7 +48,8 @@ public class MusiclimateService {
 	 * @param cityName
 	 * @return List of playlist song names
 	 */
-	@HystrixCommand(commandKey = "playlistByCity", fallbackMethod = "getFallbackPlaylist", ignoreExceptions = InvalidParameterException.class)
+	@HystrixCommand(commandKey = "playlistByCity", fallbackMethod = "getFallbackPlaylist", ignoreExceptions = {
+			ResourceNotFoundException.class, InvalidParameterException.class })
 	public List<String> getPlaylistByCity(String city) {
 		try {
 			Double temp = temperatureService.getTemperatureByCity(city);
@@ -56,6 +59,8 @@ public class MusiclimateService {
 		}
 	}
 
+	// TODO: Improve fallback strategy
+	
 	public List<String> getFallbackPlaylist(String city) {
 		return Arrays.asList("Beautiful People (feat. Khalid)", "Señorita", "Panini", "Call You Mine (with Bebe Rexha)",
 				"On A Roll", "You Need To Calm Down", "Never Really Over", "Only Human",

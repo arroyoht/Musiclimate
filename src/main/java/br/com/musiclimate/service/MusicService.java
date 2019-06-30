@@ -34,5 +34,4 @@ public class MusicService {
 		return trackResource.getTracks().stream().map(trackItem -> trackItem.getTrack().getName())
 				.collect(Collectors.toList());
 	}
-
 }
