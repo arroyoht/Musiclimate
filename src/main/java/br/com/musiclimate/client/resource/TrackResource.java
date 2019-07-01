@@ -1,6 +1,5 @@
-package br.com.musiclimate.resource;
+package br.com.musiclimate.client.resource;
 
-import java.io.Serializable;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -10,9 +9,7 @@ import lombok.ToString;
 
 @Data
 @ToString
-public class TrackResource implements Serializable {
-
-	private static final long serialVersionUID = 6888332575208537623L;
+public class TrackResource {
 
 	@JsonProperty("items")
 	private List<TrackItem> tracks;
