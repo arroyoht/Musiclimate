@@ -8,9 +8,7 @@ import org.springframework.stereotype.Service;
 import br.com.musiclimate.domain.MusicCategory;
 import br.com.musiclimate.error.ServiceUnavailableException;
 import feign.FeignException;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @Service
 public class MusiclimateService {
 	

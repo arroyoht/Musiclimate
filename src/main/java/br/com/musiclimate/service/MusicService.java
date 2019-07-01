@@ -42,7 +42,7 @@ public class MusicService {
 		return trackResource.getTracks().stream().map(trackItem -> trackItem.getTrack().getName())
 				.collect(Collectors.toList());
 	}
-	
+
 	public List<String> getFallbackPlaylist(MusicCategory musicCategory) {
 		return Arrays.asList("Beautiful People (feat. Khalid)", "Señorita", "Panini", "Call You Mine (with Bebe Rexha)",
 				"On A Roll", "You Need To Calm Down", "Never Really Over", "Only Human",
