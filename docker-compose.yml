@@ -24,7 +24,7 @@ services:
     expose: 
       - 8080
     build:
-      context: ./musiclimate
+      context: ./musiclimate-server
       dockerfile: Dockerfile
     depends_on:
       - redis-server
