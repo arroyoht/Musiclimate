@@ -5,3 +5,4 @@
 .project
 .mvn/
 *.log
+*.gz
