@@ -10,9 +10,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<groupId>br.com.musiclimate</groupId>
 	<artifactId>eureka-server</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>eureka-server</name>
 	<description>Musiclimate Eureka Server</description>
 

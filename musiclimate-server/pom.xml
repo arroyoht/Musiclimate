@@ -10,9 +10,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<groupId>br.com.musiclimate</groupId>
 	<artifactId>musiclimate-server</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>musiclimate-server</name>
 	<description>Musiclimate - Get music tracks according to local climate</description>
 
