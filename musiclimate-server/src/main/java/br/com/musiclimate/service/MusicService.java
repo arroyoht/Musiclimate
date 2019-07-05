@@ -34,7 +34,7 @@ public class MusicService {
 	 * @param musicCategory music category id
 	 * @return List of music tracks
 	 */
-	@HystrixCommand(commandKey = "getTracksByCategory", fallbackMethod = "getFallbackPlaylist", commandProperties = @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "2000"), 
+	@HystrixCommand(commandKey = "getTracksByCategory", fallbackMethod = "getFallbackPlaylist", commandProperties = @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "5000"), 
 			ignoreExceptions = { ResourceNotFoundException.class, InvalidParameterException.class })
 	@Cacheable(value = "tracksByCategory", key = "#musicCategory", unless="#result.size() == 1")
 	public List<String> getTracksByMusicCategory(MusicCategory musicCategory) {
@@ -42,7 +42,8 @@ public class MusicService {
 		String playlistId = playlistResource.getPlaylists().getItems().get(0).getPlaylistId();
 
 		TrackResource trackResource = musicApiService.getTracksByPlaylist(playlistId);
-		return trackResource.getTracks().stream().map(trackItem -> trackItem.getTrack().getName())
+		return trackResource.getTracks().stream().filter(trackItem -> trackItem.getTrack() != null)
+				.map(trackItem -> trackItem.getTrack().getName())
 				.collect(Collectors.toList());
 	}
 
