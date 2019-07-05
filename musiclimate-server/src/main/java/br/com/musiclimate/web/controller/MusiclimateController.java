@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.musiclimate.service.MusiclimateService;
 
 @RestController
-@RequestMapping(value = "/musiclimate", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/playlist", produces = MediaType.APPLICATION_JSON_VALUE)
 public class MusiclimateController {
 
 	@Autowired
