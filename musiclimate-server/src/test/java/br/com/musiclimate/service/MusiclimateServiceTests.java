@@ -73,12 +73,13 @@ public class MusiclimateServiceTests {
 	}
 	
 	@Test
-	public void givenThatItsFreezing_WhenGetPlaylist_ThenReturnParty() {	
+	public void givenThatItsHot_WhenGetPlaylist_ThenReturnParty() {	
 		Mockito.when(this.temperatureService.getTemperatureByCity(city)).thenReturn(HOT_TEMP);
 		Mockito.when(this.musicService.getTracksByMusicCategory(MusicCategory.PARTY))
 				.thenReturn(Arrays.asList(musicTrack));
 		
 		List<String> tracks = musiclimateService.getPlaylistByCity(city);
+		
 		Mockito.verify(this.musicService).getTracksByMusicCategory(MusicCategory.PARTY);
 		assertTrue(tracks.contains(musicTrack));
 	}
