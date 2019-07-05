@@ -23,17 +23,26 @@ services:
     image: musiclimate/musiclimate:latest
     expose: 
       - 8080
-    ports: 
-      - 8080:8080
     build:
       context: ./musiclimate-server
       dockerfile: Dockerfile
     depends_on:
       - redis-server
       - eureka-server
-    links:
-      - redis-server:redis
-      - eureka-server:eureka-server
+    networks:
+      - main-network
+  zuul-server:
+    container_name: zuul-server
+    build:
+      context: ./zuul-server
+      dockerfile: Dockerfile
+    image: musiclimate/zuul-server:latest
+    expose: 
+      - 8765
+    ports:
+      - 8765:8765
+    depends_on:
+      - musiclimate
     networks:
       - main-network
 networks:

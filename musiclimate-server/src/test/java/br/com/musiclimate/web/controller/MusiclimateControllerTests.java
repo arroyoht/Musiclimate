@@ -18,7 +18,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class MusiclimateControllerTests {
 
-	private static String ENDPOINT = "musiclimate/";
+	private static String ENDPOINT = "playlist/";
 	
 	@LocalServerPort
 	private int port;
@@ -36,7 +36,7 @@ public class MusiclimateControllerTests {
 
 	@Test
 	public void testGetPlaylistByInvalidCity() throws Exception {
-		ResponseEntity<String[]> response = getByCity("Inexistent_City");
+		ResponseEntity<String[]> response = getByCity("This is not a real city");
 		assertTrue(response.getStatusCode().equals(HttpStatus.NOT_FOUND));
 	}
 	
