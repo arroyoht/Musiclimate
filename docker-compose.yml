@@ -1,0 +1,50 @@
+version: '2.2'
+services:
+  redis-server:
+    container_name: redis-server
+    image: redis:5.0.5
+    expose: 
+      - 6379
+    networks: 
+      - main-network
+  eureka-server:
+    container_name: eureka-server
+    build:
+      context: ./eureka-server
+      dockerfile: Dockerfile
+    image: musiclimate/eureka-server:latest
+    expose: 
+      - 8761
+    ports:
+      - 8761:8761
+    networks:
+      - main-network
+  musiclimate:
+    image: musiclimate/musiclimate:latest
+    expose: 
+      - 8080
+    build:
+      context: ./musiclimate-server
+      dockerfile: Dockerfile
+    depends_on:
+      - redis-server
+      - eureka-server
+    networks:
+      - main-network
+  zuul-server:
+    container_name: zuul-server
+    build:
+      context: ./zuul-server
+      dockerfile: Dockerfile
+    image: musiclimate/zuul-server:latest
+    expose: 
+      - 8765
+    ports:
+      - 8765:8765
+    depends_on:
+      - musiclimate
+    networks:
+      - main-network
+networks:
+  main-network:
+    driver: bridge
